@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Gayer Productions | New York Artist</title>
+    <meta name="description" content="Official website of Jonas Gayer Productions, showcasing contemporary art including abstract, cars & boats, collage, and figurative paintings. Explore the gallery and learn about the artist.">
+    <meta name="keywords" content="Jonas Gayer, contemporary art, New York artist, abstract paintings, car art, boat art, collage art, figurative art, art gallery, Shelter Island artist, original art">
+    <meta name="author" content="Jonas Gayer Productions">
+    <meta property="og:title" content="Jonas Gayer Productions | New York Artist">
+    <meta property="og:description" content="Official website of Jonas Gayer Productions, showcasing contemporary art including abstract, cars & boats, collage, and figurative paintings.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.jonasgayer.com/">
+    <meta property="og:image" content="https://www.jonasgayer.com/images/og-image.jpg">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        
+    
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-style: italic;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        
+        main {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        .page-section {
+            display: none;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+       
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .artwork-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .artwork-card--wide-boat {
+    grid-column: span 2; 
+}
+
+
+.artwork-img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px 15px 0 0;
+}
+
+        .artwork-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+       
+        .artwork-img {
+            width: 100%;
+            height: 400px; 
+            object-fit: cover; 
+            display: block; 
+            border-radius: 15px 15px 0 0; 
+        }
+
+        
+
+      
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border-radius: 20px;
+            margin: 50px 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .featured-works {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        
+        .featured-work {
+            width: 240px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-work:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        
+        .bio-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+            margin: 50px 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .artist-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+       
+        footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 100px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .bio-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+ 
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .movedown {
+            margin-top: 13%; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                 <a href="#" class="logo" onclick="showSection('home')">Jonas Gayer Productions</a>
+                 <nav>
+                    <div class="menu-toggle" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul id="nav-menu">
+                        <li><a href="#" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#" onclick="showSection('abstract')">Abstract</a></li>
+                        <li><a href="#" onclick="showSection('cars-boats')">Cars & Boats</a></li>
+                        <li><a href="#" onclick="showSection('collage')">Collage</a></li>
+                        <li><a href="#" onclick="showSection('figurative')">Figurative</a></li>
+                        <li><a href="#" onclick="showSection('biography')">Artist Biography</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container movedown">
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1 class="hero-title">Explorations in Color & Texture</h1>
+                <p class="hero-subtitle">Contemporary Art by Jonas Gayer</p>
+                <div class="featured-works">
+                    <img class="featured-work" src="images/figurative/figurative6.jpg" alt="Abstract artwork 1" onclick="openModal(this.src, this.alt)">
+                    <img class="featured-work" src="images/cars_boats/boats4.jpg" alt="Boats artwork 1" onclick="openModal(this.src, this.alt)">
+                    <img class="featured-work" src="images/collage/collage1.jpg" alt="Collage artwork 1" onclick="openModal(this.src, this.alt)">
+                </div>
+            </div>
+        </section>
+
+        <section id="abstract" class="page-section">
+            <h2 class="page-title">Abstract</h2>
+            <p class="page-subtitle">Click on any of the thumbnails to view enlargements</p>
+            <div class="gallery-grid">
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/abstract/abstract1.jpg" alt="Abstract artwork 1">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/abstract/abstract2.jpg" alt="Abstract artwork 2">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/abstract/abstract3.jpg" alt="Abstract artwork 3">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/abstract/abstract4.jpg" alt="Abstract artwork 4">
+                </div>
+                 <div class="artwork-card artwork-card--wide-boat" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/abstract/abstract5.jpg" alt="Abstract artwork 5">
+                </div>
+            </div>
+        </section>
+
+        <section id="cars-boats" class="page-section">
+            <h2 class="page-title">Cars & Boats</h2>
+            <p class="page-subtitle">Click on any of the thumbnails to view enlargements</p>
+            <div class="gallery-grid">
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/cars_boats/boats4.jpg" alt="Boats artwork 1">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/cars_boats/boats2.jpg" alt="Boats artwork 2">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/cars_boats/boats3.jpg" alt="Boats artwork 3">
+                </div>
+                 <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/cars_boats/boats1.jpg" alt="Cars artwork 1">
+                </div>
+                <div class="artwork-card artwork-card--wide-boat" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/cars_boats/boats5.jpg" alt="Boats artwork 5"> </div>
+            
+        </section>
+
+        <section id="collage" class="page-section">
+            <h2 class="page-title">Collage</h2>
+            <p class="page-subtitle">Click on any of the thumbnails to view enlargements</p>
+            <div class="gallery-grid">
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/collage/collage1.jpg" alt="Collage artwork 1">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/collage/collage4.jpg" alt="Collage artwork 2">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/collage/collage3.jpg" alt="Collage artwork 3">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/collage/collage2.jpg" alt="Collage artwork 4">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/collage/collage5.jpg" alt="Collage artwork 5">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/collage/collage6.jpg" alt="Collage artwork 6">
+            </div>
+        </section>
+
+        <section id="figurative" class="page-section">
+            <h2 class="page-title">Figurative</h2>
+            <p class="page-subtitle">Click on any of the thumbnails to view enlargements</p>
+            <div class="gallery-grid">
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/figurative/figurative1.jpg" alt="Figurative artwork 1">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/figurative/figurative2.jpg" alt="Figurative artwork 2">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/figurative/figurative3.jpg" alt="Figurative artwork 3">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/figurative/figurative4.jpg" alt="Figurative artwork 4">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/figurative/figurative5.jpg" alt="Figurative artwork 5">
+                </div>
+                <div class="artwork-card" onclick="openModal(this.querySelector('img').src, this.querySelector('img').alt)">
+                    <img class="artwork-img" src="images/figurative/figurative6.jpg" alt="Figurative artwork 6">
+                </div>
+            </div>
+        </section>
+
+        <section id="biography" class="page-section">
+            <h2 class="page-title">Artist Biography</h2>
+            <div class="bio-section">
+                <div class="bio-image">
+                    <img src="images/jonas_gayer.jpg" alt="Jonas Gayer - Artist Photo" class="artist-photo">
+                    
+                </div>
+                <div class="bio-text">
+                    <h3>Meet the Artist</h3>
+                    <p>Jonas Gayer is a painter working in acrylics and oils. He specializes in collages, abstract art, and figurative paintings. Jonas' work has been exhibited in New York City, the Hamptons, and on Shelter Island. His studio is located on Shelter Island where he has been a resident for over fifty years.</p><br>
+                    <p>His work ranges from scenic views to portraits, to cubism, to his unique style. His most recent work is a combination of dynamic colors and textures which take on a life of their own. These paintings encourage the viewer to be creative and interpret the meaning behind the artwork. Jonas' work has been influenced by the exquisite views of Shelter Island, his family, and friends.</p><br>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01" alt="Enlarged artwork image">
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="#" onclick="showSection('home')">Home</a>
+                <a href="#" onclick="showSection('abstract')">Abstract</a>
+                <a href="#" onclick="showSection('cars-boats')">Cars & Boats</a>
+                <a href="#" onclick="showSection('collage')">Collage</a>
+                <a href="#" onclick="showSection('figurative')">Figurative</a>
+                <a href="#" onclick="showSection('biography')">Artist Biography</a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> Jonas Gayer Productions. All rights reserved.</p>
+            <p>Website Design by Johnny Dawson.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        }
+
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        
+        function openModal(imageUrl, altText) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("img01");
+
+            if (imageUrl) {
+                modal.style.display = "block";
+                modalImg.src = imageUrl;
+                modalImg.alt = altText;
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+            const modalImg = document.getElementById("img01");
+            modalImg.src = ""; 
+            modalImg.alt = ""; 
+        }
+
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
